@@ -60,7 +60,7 @@ fastify.get('/.well-known/lnurlp/:username', async (request, reply) => {
 
 const start = async () => {
     try {
-        await fastify.listen(3000)
+        await fastify.listen(process.env.PORT || 3000)
     } catch (err) {
         fastify.log.error(err)
         process.exit(1)
