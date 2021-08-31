@@ -12,8 +12,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
-    "fastify": "^3.20.2",
-    "lnurl": "^0.18.0"
+    "fastify": "^3.20.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
