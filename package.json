@@ -1,0 +1,21 @@
+{
+  "name": "ligess",
+  "version": "1.0.0",
+  "description": "Lightning address server",
+  "main": "index.js",
+  "repository": "https://github.com/dolu89/ligess",
+  "author": "dolu",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "fastify": "^3.20.2",
+    "lnurl": "^0.18.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
