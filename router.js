@@ -1,6 +1,5 @@
 const fastify = require('fastify')({ logger: true })
-const axios = require('axios')
-const crypto = require('crypto')
+const { createInvoice } = require('./createInvoice')
 
 const _username = process.env.LIGESS_USERNAME
 const _domain = process.env.LIGESS_DOMAIN
@@ -31,24 +30,15 @@ fastify.get('/.well-known/lnurlp/:username', async (request, reply) => {
         }
         else {
             const msat = request.query.amount
-            const stringToHash = JSON.stringify(_metadata)
+            const metadata = JSON.stringify(_metadata)
 
-            const invoiceResult = await axios.post(process.env.LIGESS_LND_REST + '/v1/invoices',
-                {
-                    value_msat: msat,
-                    description_hash: crypto.createHash('sha256').update(stringToHash).digest('base64')
-                },
-                {
-                    headers: {
-                        'Grpc-Metadata-macaroon': process.env.LIGESS_LND_MACAROON
-                    }
-                })
+            const payment_request = await createInvoice(process.env.LIGESS_LN_BACKEND, metadata, msat)
 
             return {
                 status: 'OK',
                 successAction: { 'tag': 'message', 'message': 'Payment received!' },
                 routes: [],
-                pr: invoiceResult.data.payment_request,
+                pr: payment_request,
                 disposable: false
             }
         }
