@@ -13,6 +13,7 @@ A massively simpler way for anyone to send you Bitcoin instantly on the Lightnin
 
 ## Supported Lightning implementation
 - LND (LND with REST API)
+- Eclair (Soon. Waiting for [#1919](https://github.com/ACINQ/eclair/pull/1919))
 
 ## Installation
 ``` shell
