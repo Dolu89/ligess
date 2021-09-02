@@ -1,6 +1,10 @@
 # LIGESS (**Lig**~~hting addr~~**ess**)
 
 ## Your personnal Lightning address server
+> Like an email address, but for your Bitcoin!
+A massively simpler way for anyone to send you Bitcoin instantly on the Lightning Network.
+
+*https://lightningaddress.com/*
 
 ## Prerequisite
 - Nodejs >= 14
@@ -20,7 +24,9 @@ yarn dev
 ```
 
 ## Usage
-You should be able to access to https://YOUDOMAIN.COM/.well-known/lnurlp/USERNAME and get a valid [LUD-06](https://github.com/fiatjaf/lnurl-rfc/blob/luds/06.md) JSON response.
+You should be able to access to https://YOURDOMAIN.COM/.well-known/lnurlp/USERNAME and get a valid [LUD-06](https://github.com/fiatjaf/lnurl-rfc/blob/luds/06.md) JSON response.
+
+Now your Lightning address is configured as follow `USERNAME@YOURDOMAIN.COM`
 
 
 ### Installation for LND
