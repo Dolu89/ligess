@@ -1,13 +1,24 @@
 const fastify = require('fastify')({ logger: true })
 const { createInvoice } = require('./createInvoice')
+const { bech32 } = require('bech32')
 
 const _username = process.env.LIGESS_USERNAME
 const _domain = process.env.LIGESS_DOMAIN
 const _identifier = `${_username}@${_domain}`
+const _lnurlpUrl = `https://${_domain}/.well-known/lnurlp/${_username}`
 const _metadata = [['text/identifier', _identifier], ['text/plain', `Satoshis to ${_identifier}`]]
 
 fastify.get('/', async (request, reply) => {
-    return { info: 'Ligess personnal server at https://github.com/dolu89/ligess' }
+    // TODO Render html instead of JSON
+    const words = bech32.toWords(Buffer.from(_lnurlpUrl, 'utf8'))
+    return {
+        lnurlp: bech32.encode('lnurl', words, 1023),
+        decodedUrl: _lnurlpUrl,
+        info: {
+            title: 'Ligess: Lightning address personnal server',
+            source: 'https://github.com/dolu89/ligess'
+        }
+    }
 
 })
 
@@ -20,7 +31,7 @@ fastify.get('/.well-known/lnurlp/:username', async (request, reply) => {
         if (!request.query.amount) {
             return {
                 status: 'OK',
-                callback: `https://${_domain}/.well-known/lnurlp/${_username}`,
+                callback: _lnurlpUrl,
                 tag: 'payRequest',
                 maxSendable: 100000000,
                 minSendable: 1000,
