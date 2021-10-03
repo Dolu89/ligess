@@ -1,3 +1,4 @@
 const LND = 'LND'
+const LNbits = 'LNbits'
 
-module.exports = { LND }
+module.exports = { LND, LNbits }
