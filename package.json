@@ -13,7 +13,8 @@
     "axios": "^0.21.1",
     "bech32": "^2.0.0",
     "dotenv": "^10.0.0",
-    "fastify": "^3.20.2"
+    "fastify": "^3.20.2",
+    "socks-proxy-agent": "^6.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
