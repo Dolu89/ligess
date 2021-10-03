@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  ligess:
+    build: ./
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      ## Ligess
+      - HOST=0.0.0.0
+      - PORT=3000
+      - LIGESS_USERNAME=dolu
+      - LIGESS_DOMAIN=bips.xyz
+
+      ## Backend (choose only one)
+
+      #### LND
+      # - LIGESS_LN_BACKEND=LND
+      # - LIGESS_LND_REST=https://lnd_rest_api # can be an onion url
+      # - LIGESS_LND_MACAROON=hex macaroon with createinvoice
+
+      #### LNbits
+      # - LIGESS_LN_BACKEND=LNbits
+      # - LIGESS_LNBITS_DOMAIN=https://lnbits.com # can be replaced by your own LNbits isntance url
+      # - LIGESS_LNBITS_API_KEY=this1is2an3example # can be found at the right of your wallet page, under "API info" > "Invoice/read key"
+
+      ## Tor
+      # - LIGESS_TOR_PROXY_URL=socks5h://tor:9050
+
+
+#  tor:
+#    image: lncm/tor:latest
+#    restart: on-failure
+#    command: --SocksPort 0.0.0.0:9050
+#    expose:
+#      - 9050
