@@ -1,6 +1,6 @@
 # LIGESS (**Lig**~~hting addr~~**ess**)
 
-## Your personnal Lightning address server
+## Your personal Lightning address server
 > Like an email address, but for your Bitcoin!
 A massively simpler way for anyone to send you Bitcoin instantly on the Lightning Network.
 
