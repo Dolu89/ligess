@@ -13,7 +13,7 @@ A massively simpler way for anyone to send you Bitcoin instantly on the Lightnin
 
 ## Supported Lightning implementation
 - LND (LND with REST API)
-- Eclair (Soon. Waiting for [#1919](https://github.com/ACINQ/eclair/pull/1919))
+- Eclair (v0.6.2)
 
 ## Installation
 
@@ -42,8 +42,17 @@ Now your Lightning address is configured as follow `USERNAME@YOURDOMAIN.COM`
 In `.env` config file or `docker-compose` environment:
 ```
 LIGESS_LN_BACKEND=LND
-LIGESS_LND_REST=https://yourLNDRestAPI.com
+LIGESS_LND_REST=https://yourLNDRestAPI.com # can be an onion url
 LIGESS_LND_MACAROON=hex macaroon with createinvoice
+```
+
+### Installation for Eclair
+In `.env` config file or `docker-compose` environment:
+```
+LIGESS_LN_BACKEND=Eclair
+LIGESS_ECLAIR_REST=http://eclair_rest_api # can be an onion url
+LIGESS_ECLAIR_LOGIN=login
+LIGESS_ECLAIR_PASSWORD=password
 ```
 
 ### Installation for LNbits

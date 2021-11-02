@@ -20,6 +20,12 @@ services:
       # - LIGESS_LND_REST=https://lnd_rest_api # can be an onion url
       # - LIGESS_LND_MACAROON=hex macaroon with createinvoice
 
+      #### Eclair
+      # - LIGESS_LN_BACKEND=Eclair
+      # - LIGESS_ECLAIR_REST=http://eclair_rest_api # can be an onion url
+      # - LIGESS_ECLAIR_LOGIN=login
+      # - LIGESS_ECLAIR_PASSWORD=password
+
       #### LNbits
       # - LIGESS_LN_BACKEND=LNbits
       # - LIGESS_LNBITS_DOMAIN=https://lnbits.com # can be replaced by your own LNbits isntance url
