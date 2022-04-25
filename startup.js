@@ -22,6 +22,9 @@ const startup = () => {
 const _lndCheck = () => {
   const requiredKeys = ['LIGESS_LND_REST', 'LIGESS_LND_MACAROON']
   checkKeys(requiredKeys)
+  if (!process.env.LIGESS_LND_REST.startsWith('https:')) {
+    console.error('Env variable LIGESS_LND_REST only supports https protocol')
+  } 
 }
 
 const _eclairCheck = () => {
