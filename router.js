@@ -13,6 +13,7 @@ const unaWrapper = getLnClient()
 
 fastify.get('/', async (request, reply) => {
   // TODO Render html instead of JSON
+  console.warn('Unexpected request to root. When using a proxy, make sure the URL path is forwarded.')
   const words = bech32.toWords(Buffer.from(_lnurlpUrl, 'utf8'))
   return {
     lnurlp: bech32.encode('lnurl', words, 1023),
