@@ -43,8 +43,16 @@ In `.env` config file or `docker-compose` environment:
 ```
 LIGESS_LN_BACKEND=LND
 LIGESS_LND_REST=https://yourLNDRestAPI.com # can be an onion url
-LIGESS_LND_MACAROON=hex macaroon with createinvoice
+LIGESS_LND_MACAROON=hex string macaroon with invoice:create # should be a long (~265 character) string that you generate either on a CLI or in a UI.
 ```
+
+#### Tip
+
+The macaroon is what gives ligess the permissions to create invoices on behalf of your LND node.
+
+The act of generating a macaroon is called "baking".  If you're paying for hosting an LND node, there should be a UI.  On Voltage, it's Connect > Other Macaroons > "Bake Other Macaroon".  For self-hosted, there is a CLI tool to generate it.
+
+More information on macaroons can be found [here](https://github.com/lightningnetwork/lnd/blob/master/docs/macaroons.md).  
 
 ### Installation for Eclair
 In `.env` config file or `docker-compose` environment:
