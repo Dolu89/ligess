@@ -13,7 +13,7 @@
     "bech32": "^2.0.0",
     "dotenv": "^10.0.0",
     "fastify": "^3.20.2",
-    "una-wrapper": "^0.0.7-beta"
+    "una-wrapper": "^0.0.11-beta"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
