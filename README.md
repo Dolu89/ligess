@@ -90,6 +90,17 @@ LIGESS_TOR_PROXY_URL=socks5h://127.0.0.1:9050 # standalone installation
 LIGESS_TOR_PROXY_URL=socks5h://tor:9050 # docker installation
 ```
 
+### Using Nostr
+For sending zap notes on Nostr, you have to supply a Nostr private Key in `.env` that acts as the zap sender, in hex format.
+```
+LIGESS_NOSTR_ZAPPER_PRIVATE_KEY=this1is2an3example
+```
+
+To have zap requests working from web clients, and prevent CORS errors, make sure to add the following header to the web server configuration:
+```
+Access-Control-Allow-Origin "*";
+```
+
 ## Support this project
 You can help me by contributing to this project or by donating to my Lightning address `dolu@bips.xyz`
 
